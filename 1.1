@@ -1,0 +1,119 @@
+var str = "Hello, playground"
+
+func searchPrimNum() ->[Int]{
+
+var changeArray = [2,3]//定义可变数组
+
+var isPrim = 0
+print("质数是：")
+
+for a in 4...10000{
+
+    for b in 2..<a{
+
+        if a%b==0{
+
+            isPrim+=1
+
+            break
+
+        }
+
+    }
+
+    
+    if isPrim==0{
+
+        changeArray.append(a)
+
+    }
+
+    
+    isPrim=0
+
+}
+
+return changeArray
+
+}
+
+
+var primNum = searchPrimNum()
+
+primNum.sort() //升序
+
+print("数组升序排列:")
+
+print(primNum)
+
+
+
+//第一种降序排列方法
+
+func compare(m:Int,n:Int)->Bool{
+
+   return m>n
+
+}
+
+primNum.sort(by:compare)
+
+print("第一种降序排列为：")
+
+print(primNum)
+
+
+
+//第二种降序排列方法
+
+primNum.sort(by:{
+
+    (m:Int,n:Int)->Bool in
+
+    return m>n
+
+})
+
+print("第二种降序排列为：")
+
+print(primNum)
+
+
+
+//第三种降序排列方法
+
+primNum.sort{
+
+    (m,n)->Bool in
+
+    return m>n
+
+}
+
+print("第三种降序排列为：")
+
+print(primNum)
+
+
+
+//第四种降序排列方法
+
+primNum.sort{(m,n)in
+    
+return m>n
+
+}
+
+print("第四种降序排列为：")
+
+print(primNum)
+
+
+
+//第五种降序排列方法
+
+primNum.sort(by:>)
+
+print("第五种降序排列为：")
+
+print(primNum)
